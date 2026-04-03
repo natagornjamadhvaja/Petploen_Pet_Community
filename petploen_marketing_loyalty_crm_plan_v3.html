@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pet Ploen Marketing + CRM + LINE OA + Google Business + Social Ads</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700;800&display=swap');
+    :root{
+      --bg:#fffaf6;
+      --card:#ffffff;
+      --ink:#1f2937;
+      --muted:#667085;
+      --line:#f0dfd2;
+      --primary:#ff7a45;
+      --primary2:#ffb067;
+      --green:#26a269;
+      --green-soft:#ecfaf3;
+      --blue:#4e8df5;
+      --blue-soft:#eef4ff;
+      --pink:#ff5d8f;
+      --pink-soft:#fff0f5;
+      --dark:#24364f;
+      --shadow:0 14px 42px rgba(31,41,55,.08);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Noto Sans Thai',sans-serif;
+      color:var(--ink);
+      line-height:1.75;
+      background:
+        radial-gradient(circle at top left,#fff0e8 0,transparent 30%),
+        radial-gradient(circle at top right,#fff6df 0,transparent 28%),
+        var(--bg);
+    }
+    .container{max-width:1180px;margin:0 auto;padding:0 24px 80px}
+    .hero{padding:64px 24px 32px}
+    .hero-box{
+      background:linear-gradient(135deg,#ff7a45 0%,#ff9a5a 42%,#ffc46b 100%);
+      color:#fff;
+      border-radius:32px;
+      padding:44px;
+      position:relative;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .hero-box:before,.hero-box:after{
+      content:"🐾";
+      position:absolute;
+      opacity:.10;
+      font-size:220px;
+      line-height:1;
+      pointer-events:none;
+    }
+    .hero-box:before{top:-20px;right:-10px}
+    .hero-box:after{bottom:-65px;left:-10px;transform:rotate(-18deg)}
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(30px,4vw,54px);
+      line-height:1.15;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+    .subtitle{max-width:860px;margin:0 0 20px;font-size:18px;opacity:.96}
+    .badges{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:10px 16px;
+      font-size:14px;
+      font-weight:700;
+      backdrop-filter: blur(10px);
+    }
+
+    .section{margin-top:28px}
+    .section-title{
+      margin:0 0 6px;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:-.02em;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .section-desc{margin:0 0 20px;color:var(--muted);font-size:15px}
+    .grid{display:grid;gap:18px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .card h3{margin:0 0 10px;font-size:20px;font-weight:800}
+    .card p{margin:0;color:#475467;font-size:15px}
+    .mini{margin-top:10px;font-size:13px;color:var(--muted)}
+    .highlight{
+      display:inline-block;
+      padding:4px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+    .h-orange{background:#fff0e7;color:#d75c28}
+    .h-green{background:#ebf9f1;color:#168759}
+    .h-pink{background:#fff0f5;color:#d33d74}
+    .h-blue{background:#edf4ff;color:#2f6fe0}
+    .pillars .card:nth-child(1){background:linear-gradient(180deg,#fff,#fff7f1)}
+    .pillars .card:nth-child(2){background:linear-gradient(180deg,#fff,#f4fffa)}
+    .pillars .card:nth-child(3){background:linear-gradient(180deg,#fff,#fff5f8)}
+
+    .program-box{
+      border-radius:30px;
+      padding:30px;
+      background:linear-gradient(135deg,#1f2937 0%,#24364f 100%);
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+    .program-box h3{margin:0 0 8px;color:#fff;font-size:30px}
+    .program-box p{color:rgba(255,255,255,.88)}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+    .step{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:18px;
+      padding:18px;
+      color:#fff;
+    }
+    .step strong{display:block;margin-bottom:6px;font-size:14px}
+
+    .table-wrap{
+      overflow:auto;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+    table{width:100%;min-width:920px;border-collapse:collapse}
+    th{
+      text-align:left;
+      background:#24364f;
+      color:#fff;
+      padding:16px 18px;
+      font-size:14px;
+      font-weight:700;
+    }
+    td{
+      padding:16px 18px;
+      border-top:1px solid #f1ece7;
+      vertical-align:top;
+      font-size:14px;
+      color:#334155;
+    }
+    tr:nth-child(even) td{background:#fffdfa}
+
+    ul{margin:8px 0 0 18px;padding:0}
+    li{margin:4px 0}
+
+    .metric{
+      background:linear-gradient(180deg,#fff,#fff9f3);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .metric .num{
+      color:var(--primary);
+      font-size:34px;
+      line-height:1;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .timeline{display:grid;gap:14px}
+    .timeline-item{
+      display:grid;
+      grid-template-columns:150px 1fr;
+      gap:18px;
+      align-items:start;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+    .time{color:var(--primary);font-weight:800;font-size:15px}
+    .timeline-item h4{margin:0 0 6px;font-size:18px}
+
+    .tag{
+      display:inline-block;
+      padding:5px 10px;
+      border-radius:999px;
+      background:#f4f6f8;
+      font-size:12px;
+      color:#475467;
+      margin:4px 6px 0 0;
+      font-weight:600;
+    }
+
+    /* LINE mockup */
+    .phone-wrap{display:flex;justify-content:center}
+    .phone{
+      width:350px;
+      background:#111827;
+      padding:14px;
+      border-radius:34px;
+      box-shadow:0 18px 50px rgba(17,24,39,.22);
+    }
+    .screen{
+      min-height:700px;
+      border-radius:24px;
+      overflow:hidden;
+      position:relative;
+      background:#f7f9fc;
+    }
+    .status{
+      height:28px;
+      background:#fff;
+      padding:8px 14px 0;
+      font-size:12px;
+      font-weight:700;
+      display:flex;
+      justify-content:space-between;
+    }
+    .line-header{
+      background:#06c755;
+      color:#fff;
+      padding:14px 16px;
+      font-weight:800;
+      font-size:16px;
+    }
+    .chat-area{
+      padding:16px;
+      padding-bottom:190px;
+      background:linear-gradient(180deg,#f7f9fc,#eef4fb);
+      min-height:560px;
+    }
+    .bubble{
+      background:#fff;
+      border-radius:18px 18px 18px 6px;
+      padding:12px 14px;
+      border:1px solid #edf0f5;
+      box-shadow:0 6px 20px rgba(31,41,55,.06);
+      margin-bottom:12px;
+      max-width:86%;
+      font-size:13px;
+      color:#334155;
+    }
+    .richmenu{
+      position:absolute;
+      left:0;right:0;bottom:0;
+      background:#fff;
+      border-top:1px solid #e5e7eb;
+      padding:12px;
+    }
+    .richmenu-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:13px;
+      font-weight:800;
+      margin:0 0 10px;
+    }
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .menu-btn{
+      min-height:78px;
+      border-radius:16px;
+      padding:10px 8px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-size:12px;
+      font-weight:700;
+      line-height:1.35;
+      background:#fff7f1;
+      color:#9a4f28;
+      border:1px solid #ffd7c3;
+    }
+    .menu-btn.alt{background:#eef8ff;border-color:#cfe2ff;color:#2b5eb9}
+    .menu-btn.green{background:#eefcf5;border-color:#cfeedd;color:#187a53}
+    .menu-icon{font-size:20px;margin-bottom:4px}
+
+    .footer-note{
+      margin-top:28px;
+      background:#fff;
+      border:1px dashed #e7cbb8;
+      border-radius:24px;
+      padding:22px;
+      color:#5b6472;
+    }
+
+    @media (max-width: 920px){
+      .grid-2,.grid-3,.grid-4,.flow{grid-template-columns:1fr}
+      .timeline-item{grid-template-columns:1fr}
+      .hero-box{padding:30px}
+      .phone{width:100%}
+    }
+    @media print{
+      body{background:#fff}
+      .hero{padding:18px 0 0}
+      .container{padding:0 12px 28px}
+      .card,.metric,.table-wrap,.timeline-item,.hero-box,.program-box,.phone{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <div class="highlight h-orange">Marketing Master Plan + CRM / Loyalty Program</div>
+        <h1>Pet Ploen Marketing Plan 2026</h1>
+        <p class="subtitle">แผนการตลาดรวมทั้งตึก สำหรับ Pet Ploen และทุก BU โดยต่อยอดแนวคิด <strong>“หมาดีใจ แมวใจดี คนใจบุญ”</strong> ให้กลายเป็นทั้งแคมเปญสื่อสาร, ระบบสมาชิก, CRM, การขายข้ามโซน และ Community ที่ทำให้ลูกค้ากลับมาใช้บริการซ้ำ</p>
+        <div class="badges">
+          <span class="badge">🐾 Brand Theme: Joy • Care • Give</span>
+          <span class="badge">💬 CRM Engine: LINE OA + POS/CRM</span>
+          <span class="badge">🎫 Hero Mechanic: Pet Ploen Loyalty Pass</span>
+          <span class="badge">📍 Google Business + Social Ads</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="section">
+      <h2 class="section-title">01 — Big Idea</h2>
+      <p class="section-desc">แกนสื่อสารกลางของทั้งแบรนด์และทุก BU</p>
+      <div class="grid grid-3 pillars">
+        <div class="card">
+          <div class="highlight h-orange">Joy</div>
+          <h3>หมาดีใจ</h3>
+          <p>สื่อสารเรื่องความสุขของสัตว์เลี้ยงผ่าน Dog Park, Hotel, Grooming, Cafe และกิจกรรม community เพื่อให้ Pet Ploen ถูกจดจำว่าเป็นที่ที่ “สัตว์อยากมา”</p>
+        </div>
+        <div class="card">
+          <div class="highlight h-green">Care</div>
+          <h3>แมวใจดี</h3>
+          <p>สื่อสารเรื่องความเชี่ยวชาญ การดูแลแบบเข้าใจสัตว์ และบริการครบวงจร ตั้งแต่ตรวจรักษา โรงพยาบาล โภชนาการ ไปจนถึง care plan ระยะยาว</p>
+        </div>
+        <div class="card">
+          <div class="highlight h-pink">Give</div>
+          <h3>คนใจบุญ</h3>
+          <p>เติมมิติ CSR ให้คนรู้สึกว่า การมาใช้บริการที่นี่ไม่ใช่แค่ซื้อบริการ แต่ได้ร่วมช่วยเหลือสัตว์ด้อยโอกาสและสร้างสังคมคนรักสัตว์ด้วยกัน</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">02 — Loyalty Program / CRM Recommendation</h2>
+      <p class="section-desc">ข้อเสนอระบบสมาชิกและสะสมแต้มที่ใช้ร่วมกันได้ทั้งตึก</p>
+      <div class="program-box">
+        <div class="highlight h-blue" style="background:rgba(255,255,255,.16); color:#fff;">Recommended Setup</div>
+        <h3>ใช้ LINE OA เป็น Front-End หลัก</h3>
+        <p>แนะนำให้ใช้ <strong>LINE Official Account</strong> เป็นจุดศูนย์กลางในการสมัครสมาชิก, สะสมแต้ม, รับสิทธิ์, นัดหมาย, รับ broadcast และผูกลูกค้าเข้าระบบ CRM เพราะลูกค้าไทยใช้งานง่าย ไม่ต้องโหลดแอปใหม่ และทีมสามารถเริ่มได้เร็วที่สุด</p>
+        <div class="flow">
+          <div class="step"><strong>Step 1</strong>ลูกค้าแอด LINE OA และสมัครสมาชิก</div>
+          <div class="step"><strong>Step 2</strong>บันทึกข้อมูลสัตว์เลี้ยง + ประเภทบริการที่สนใจ</div>
+          <div class="step"><strong>Step 3</strong>รับแต้มจากทุก BU ผ่าน QR / POS / staff scan</div>
+          <div class="step"><strong>Step 4</strong>ใช้แต้มแลก reward + รับ CRM แบบ personalized</div>
+        </div>
+      </div>
+      <div class="grid grid-2" style="margin-top:18px;">
+        <div class="card">
+          <div class="highlight h-green">Why LINE OA</div>
+          <h3>ข้อดี</h3>
+          <ul>
+            <li>ลูกค้าไทยคุ้นเคย ใช้ง่าย ไม่ต้องอธิบายมาก</li>
+            <li>รองรับ Rich Menu, Coupon, Broadcast, Segmentation</li>
+            <li>เอาไปใช้ทั้งนัดหมาย แจ้งเตือนวัคซีน และสิทธิ์สมาชิกได้ในที่เดียว</li>
+            <li>เริ่มต้นไว ต้นทุนต่ำกว่า build app เอง</li>
+            <li>เหมาะกับการดึงลูกค้า offline เข้าสู่ระบบ CRM หลังงานเปิดตัว</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="highlight h-orange">Suggested Stack</div>
+          <h3>โครงสร้างระบบที่ควรใช้</h3>
+          <ul>
+            <li><strong>Front-end:</strong> LINE OA</li>
+            <li><strong>Member ID:</strong> เบอร์โทร + LINE UID</li>
+            <li><strong>Data Layer:</strong> CRM / Google Sheet / POS / Airtable ช่วงเริ่มต้น</li>
+            <li><strong>Redemption:</strong> QR coupon หรือ staff verify ที่เคาน์เตอร์</li>
+            <li><strong>Cross-zone tracking:</strong> ระบุ BU ที่ใช้บริการและยอดใช้จ่ายทุกครั้ง</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">03 — ตัวอย่างหน้าตา LINE OA + Rich Menu</h2>
+      <p class="section-desc">หน้าตา mockup สำหรับใช้เป็นต้นแบบออกแบบจริง</p>
+      <div class="grid grid-2">
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="screen">
+              <div class="status"><span>9:41</span><span>LTE 100%</span></div>
+              <div class="line-header">Pet Ploen Official</div>
+              <div class="chat-area">
+                <div class="bubble">
+                  สวัสดีค่ะ 💗 ยินดีต้อนรับสู่ Pet Ploen<br>
+                  ครบทุกเรื่องของน้องในที่เดียว<br>
+                  สมัคร Member วันนี้ รับ Welcome Reward ได้เลย
+                </div>
+                <div class="bubble">
+                  ตอนนี้คุณสามารถกดจาก Rich Menu เพื่อ:
+                  <ul>
+                    <li>นัดหมาย / จองบริการ</li>
+                    <li>เช็กแต้ม / สิทธิ์สมาชิก</li>
+                    <li>ดูโปรโมชั่นประจำเดือน</li>
+                    <li>ดูแผนที่ / Google Business</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="richmenu">
+                <div class="richmenu-title">
+                  <span>Rich Menu</span>
+                  <span style="color:#06c755;">Member Active</span>
+                </div>
+                <div class="menu-grid">
+                  <div class="menu-btn"><div class="menu-icon">🎫</div>สมัครสมาชิก</div>
+                  <div class="menu-btn alt"><div class="menu-icon">⭐</div>เช็กแต้ม</div>
+                  <div class="menu-btn green"><div class="menu-icon">🎁</div>สิทธิ์พิเศษ</div>
+                  <div class="menu-btn alt"><div class="menu-icon">🏥</div>นัดหมอ</div>
+                  <div class="menu-btn green"><div class="menu-icon">✂️</div>จอง Grooming</div>
+                  <div class="menu-btn"><div class="menu-icon">🏨</div>จอง Hotel</div>
+                  <div class="menu-btn green"><div class="menu-icon">📍</div>แผนที่ / Google</div>
+                  <div class="menu-btn alt"><div class="menu-icon">🔥</div>โปรโมชัน</div>
+                  <div class="menu-btn"><div class="menu-icon">🤍</div>ร่วมบริจาค</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="highlight h-blue">Recommended Rich Menu Structure</div>
+          <h3>เมนูที่ควรมี</h3>
+          <ul>
+            <li><strong>สมัครสมาชิก / Member Card</strong> — จุดเริ่มต้นของ CRM</li>
+            <li><strong>เช็กแต้ม / Rewards</strong> — ให้ลูกค้าเห็น benefit ตลอด</li>
+            <li><strong>จองบริการ</strong> — แยก Hospital / Grooming / Hotel</li>
+            <li><strong>โปรโมชันประจำเดือน</strong> — push cross-sell</li>
+            <li><strong>แผนที่ / Google Business</strong> — เชื่อม traffic offline</li>
+            <li><strong>Donation / CSR</strong> — reinforce theme “คนใจบุญ”</li>
+          </ul>
+          <div class="mini"><strong>แนวทางออกแบบ:</strong> ใช้ 6–9 ปุ่ม, อ่านง่าย, แยกสีตามประเภทบริการ และควรมี 1 ปุ่มที่ขาย reward/benefit ตลอดเวลา</div>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:18px;">
+        <table>
+          <thead>
+            <tr>
+              <th>ปุ่ม</th>
+              <th>หน้าที่</th>
+              <th>เชื่อมไปที่</th>
+              <th>เป้าหมาย</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>สมัครสมาชิก</td>
+              <td>เปิดฟอร์มสมัครสมาชิก + ผูกข้อมูลสัตว์เลี้ยง</td>
+              <td>ฟอร์มใน LINE / Google Form / CRM</td>
+              <td>เก็บ first-party data</td>
+            </tr>
+            <tr>
+              <td>เช็กแต้ม</td>
+              <td>ให้ลูกค้าเห็นคะแนนและ status ของตัวเอง</td>
+              <td>LIFF / หน้าเว็บสมาชิก</td>
+              <td>สร้างแรงจูงใจให้กลับมาใช้ซ้ำ</td>
+            </tr>
+            <tr>
+              <td>นัดหมอ / จองบริการ</td>
+              <td>แยกเส้นทางไปแต่ละ BU</td>
+              <td>Chat flow / booking form / staff assist</td>
+              <td>เพิ่ม conversion</td>
+            </tr>
+            <tr>
+              <td>โปรโมชัน</td>
+              <td>ดัน monthly campaign และ welcome offers</td>
+              <td>หน้าโปรโมชั่น</td>
+              <td>เพิ่มการใช้หลาย BU</td>
+            </tr>
+            <tr>
+              <td>แผนที่ / Google</td>
+              <td>กดดูเส้นทาง โทร หรืออ่านรีวิว</td>
+              <td>Google Business Profile</td>
+              <td>เปลี่ยน interest เป็น visit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">04 — Program Design</h2>
+      <p class="section-desc">รูปแบบ loyalty program ที่ทำให้ลูกค้ากลับมาใช้บริการซ้ำและใช้หลาย BU มากขึ้น</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="highlight h-orange">Tier 1</div>
+          <h3>Pet Friend</h3>
+          <p>สมัครฟรีเมื่อ add LINE OA รับ welcome coupon และเริ่มสะสมแต้มได้ทันที เหมาะสำหรับลูกค้าใหม่และคนที่เพิ่งรู้จักแบรนด์</p>
+          <div class="mini">Trigger: สมัครสมาชิก + กรอกข้อมูลสัตว์เลี้ยงครบ</div>
+        </div>
+        <div class="card">
+          <div class="highlight h-green">Tier 2</div>
+          <h3>Pet Family</h3>
+          <p>ปลดล็อกเมื่อใช้ครบตามยอดหรือครบหลาย BU รับสิทธิ์เพิ่ม เช่น ส่วนลดวันเกิดสัตว์เลี้ยง, priority booking, reward ข้ามโซน</p>
+          <div class="mini">Trigger: ใช้ครบ 3 BU หรือยอดสะสมถึงเป้า</div>
+        </div>
+        <div class="card">
+          <div class="highlight h-pink">Tier 3</div>
+          <h3>Pet Hero</h3>
+          <p>กลุ่มลูกค้าประจำและสายใจบุญ ได้สิทธิ์ exclusive workshop, donation matching, สิทธิ์จองกิจกรรมก่อน และ reward ระดับพรีเมียม</p>
+          <div class="mini">Trigger: ยอดใช้จ่ายสูง / บริจาค / ใช้งานต่อเนื่อง</div>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:18px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Mechanic</th>
+              <th>วิธีทำงาน</th>
+              <th>เป้าหมายธุรกิจ</th>
+              <th>ตัวอย่างสิทธิ์</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Earn Points</td>
+              <td>ทุก 25 / 50 บาท = 1 แต้ม หรือกำหนดตาม margin ของแต่ละ BU</td>
+              <td>กระตุ้นใช้ซ้ำและเพิ่มยอดใช้จ่ายต่อครั้ง</td>
+              <td>แต้มใช้แลกส่วนลด Grooming / Cafe / Shop</td>
+            </tr>
+            <tr>
+              <td>Cross-Zone Bonus</td>
+              <td>ใช้ 2 BU ใน 30 วัน รับแต้มพิเศษ / ใช้ 3 BU ปลดล็อก voucher</td>
+              <td>ดันการใช้บริการหลายโซน</td>
+              <td>ตรวจสุขภาพ + Grooming = โบนัส 50 แต้ม</td>
+            </tr>
+            <tr>
+              <td>Pet Birthday</td>
+              <td>บันทึกวันเกิดสัตว์แล้วส่งสิทธิ์อัตโนมัติทาง LINE</td>
+              <td>สร้าง retention แบบ personal</td>
+              <td>cake set / cafe coupon / grooming add-on</td>
+            </tr>
+            <tr>
+              <td>Visit Streak</td>
+              <td>กลับมาใช้บริการต่อเนื่อง 3 เดือน รับ reward</td>
+              <td>รักษาลูกค้าเดิม</td>
+              <td>วัคซีน check reminder + free add-on</td>
+            </tr>
+            <tr>
+              <td>Give Back Point</td>
+              <td>ลูกค้าเลือกแปลงแต้มเป็น donation</td>
+              <td>ต่อยอดภาพลักษณ์ “คนใจบุญ”</td>
+              <td>100 แต้ม = บริจาคอาหารสัตว์ 1 มื้อ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">05 — Google Business Strategy</h2>
+      <p class="section-desc">แนวทางทำ Google Business Profile ให้เป็นเครื่องมือหลักในการดึงคนเข้าตึกและเข้าร้าน</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="highlight h-orange">Profile Setup</div>
+          <h3>พื้นฐานที่ต้องครบ</h3>
+          <ul>
+            <li>ชื่อธุรกิจชัดเจน แยก Main Brand กับแต่ละ BU ให้ถูก</li>
+            <li>หมวดหมู่หลักและรองให้ตรงบริการจริง</li>
+            <li>เวลาเปิด-ปิด, เบอร์โทร, เว็บไซต์, LINE, map ครบ</li>
+            <li>รูปหน้าร้าน ป้ายตึก ทางเข้าจอดรถ และโซนสำคัญ</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="highlight h-green">Content on GBP</div>
+          <h3>สิ่งที่ควรอัปเดตประจำ</h3>
+          <ul>
+            <li>โพสต์โปรโมชันรายเดือน</li>
+            <li>โพสต์กิจกรรม Grand Opening / Workshop</li>
+            <li>Q&amp;A เช่น มีที่จอดไหม รับสัตว์อะไรบ้าง เปิดกี่โมง</li>
+            <li>อัปโหลดรูปรีวิวลูกค้าและบรรยากาศจริง</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="highlight h-pink">Review Strategy</div>
+          <h3>รีวิวต้องมีระบบ</h3>
+          <ul>
+            <li>ทำ QR ให้รีวิวที่เคาน์เตอร์ทุก BU</li>
+            <li>ขอรีวิวหลังใช้บริการใน LINE OA</li>
+            <li>ตอบรีวิวทุกอันด้วยโทนอบอุ่นและมืออาชีพ</li>
+            <li>เน้นรีวิวที่เล่าประสบการณ์จริง ไม่ใช่แค่ให้ดาว</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:18px;">
+        <table>
+          <thead>
+            <tr>
+              <th>จุดที่ต้องทำ</th>
+              <th>แนวทาง</th>
+              <th>เป้าหมาย</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary Keywords</td>
+              <td>ใช้คำที่คนหาจริง เช่น โรงพยาบาลสัตว์ รัชดา / dog park กรุงเทพ / โรงแรมแมว ไม่ขังกรง</td>
+              <td>เพิ่ม discoverability</td>
+            </tr>
+            <tr>
+              <td>Photo Strategy</td>
+              <td>ถ่ายภาพหน้าตึก, ทางเข้าจอดรถ, ห้องตรวจ, Dog Park, ห้องพักโรงแรม, ก่อน-หลัง grooming</td>
+              <td>เพิ่มความน่าเชื่อถือ</td>
+            </tr>
+            <tr>
+              <td>Google Posts</td>
+              <td>อัปเดตทุกสัปดาห์: โปร, event, seasonal care tips, member reward</td>
+              <td>เพิ่ม engagement และ action</td>
+            </tr>
+            <tr>
+              <td>Call to Action</td>
+              <td>เชื่อม link ไป LINE OA / โทร / ขอเส้นทาง / จองบริการ</td>
+              <td>เปลี่ยน view เป็น lead</td>
+            </tr>
+            <tr>
+              <td>Review Velocity</td>
+              <td>เก็บรีวิวใหม่อย่างต่อเนื่องทุกสัปดาห์ ไม่ใช่ทำครั้งเดียว</td>
+              <td>เสริมอันดับ local search</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">06 — Social Media Ads Strategy</h2>
+      <p class="section-desc">แนวทางยิงโฆษณาบน Social Media ให้เชื่อมกับ event, CRM และการใช้หลาย BU</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="highlight h-blue">Ad Funnel</div>
+          <h3>โครงสร้างแคมเปญที่แนะนำ</h3>
+          <ul>
+            <li><strong>Awareness Ads</strong> — วิดีโอภาพรวมตึก / concept “ครบ จบ อบอุ่น”</li>
+            <li><strong>Traffic / Message Ads</strong> — พาเข้า LINE OA, Map, หรือ inbox</li>
+            <li><strong>Conversion Ads</strong> — โปรตรวจสุขภาพ, grooming, hotel booking</li>
+            <li><strong>Retargeting Ads</strong> — ยิงซ้ำคนที่ดูวิดีโอ, กดเพจ, แอด LINE แล้วไม่ใช้สิทธิ์</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="highlight h-orange">Creative Direction</div>
+          <h3>คอนเทนต์โฆษณาที่ควรมี</h3>
+          <ul>
+            <li>Hero video พาเดินทั้งตึก</li>
+            <li>UGC / creator review กับสัตว์จริง</li>
+            <li>รีลน่ารัก + ข้อมูลดูแลสัตว์</li>
+            <li>before/after grooming หรือ recovery story</li>
+            <li>visual ที่มี offer ชัด เช่น สมัคร member วันนี้รับอะไร</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:18px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Objective</th>
+              <th>Audience</th>
+              <th>Creative</th>
+              <th>CTA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Awareness</td>
+              <td>คนเลี้ยงสัตว์ในรัศมีรอบ Pet Ploen</td>
+              <td>คลิปบรรยากาศตึก + จุดเด่นทุก BU</td>
+              <td>ดูเพิ่มเติม / ขอเส้นทาง</td>
+            </tr>
+            <tr>
+              <td>Lead / Message</td>
+              <td>คนที่ดูวิดีโอ 50%+, engage page</td>
+              <td>โปรสมัคร member + welcome reward</td>
+              <td>แอด LINE / ส่งข้อความ</td>
+            </tr>
+            <tr>
+              <td>Offer Conversion</td>
+              <td>คนที่สนใจเฉพาะเรื่องหมอ / โรงแรม / grooming</td>
+              <td>offer ราย BU แบบชัดเจน</td>
+              <td>จองเลย / รับสิทธิ์</td>
+            </tr>
+            <tr>
+              <td>Retargeting</td>
+              <td>คนที่แอด LINE แล้ว, เคยเข้าเว็บไซต์, เคยดูรีล</td>
+              <td>รีมายด์โปร + social proof + รีวิว</td>
+              <td>กลับมาใช้สิทธิ์</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:18px;">
+        <div class="card">
+          <div class="highlight h-orange">Audience Set 1</div>
+          <h3>กลุ่ม Local Pet Parent</h3>
+          <p>เลี้ยงหมาแมว อยู่รัชดา ห้วยขวาง พระราม 9 ดินแดง ลาดพร้าว และพื้นที่ใกล้เคียง เน้นดึงคนที่มีโอกาสเดินทางมาหน้างานจริง</p>
+        </div>
+        <div class="card">
+          <div class="highlight h-green">Audience Set 2</div>
+          <h3>กลุ่ม Interest-Based</h3>
+          <p>คนที่สนใจ pet care, dog park, cat hotel, grooming, vet clinic, pet-friendly cafe และติดตามคอนเทนต์สายสัตว์เลี้ยง</p>
+        </div>
+        <div class="card">
+          <div class="highlight h-pink">Audience Set 3</div>
+          <h3>Retargeting / CRM</h3>
+          <p>คนที่เคยดูคลิป, เคยทัก, เคยแอด LINE, เคยมากดแผนที่ หรือเคยใช้บริการแล้ว ให้ยิงโปรที่เจาะราย BU หรือโปร cross-sell</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">07 — Marketing Strategy</h2>
+      <p class="section-desc">แผนการตลาดรวมทั้งตึก โดยมี Loyalty Program เป็นเครื่องยนต์กลาง</p>
+      <div class="grid grid-4">
+        <div class="metric"><div class="num">1</div><strong>Awareness</strong><p>ทำให้คนรู้จัก Pet Ploen ว่าเป็น Pet Community ครบวงจร ไม่ใช่แค่ธุรกิจแยกกันหลายร้าน</p></div>
+        <div class="metric"><div class="num">2</div><strong>Acquisition</strong><p>พาลูกค้าใหม่เข้าตึกผ่าน event, Google, social, creator review และ local community</p></div>
+        <div class="metric"><div class="num">3</div><strong>Retention</strong><p>เปลี่ยนลูกค้า one-time ให้กลายเป็นสมาชิกที่กลับมาใช้ซ้ำผ่าน LINE CRM และ reward</p></div>
+        <div class="metric"><div class="num">4</div><strong>Cross-Sell</strong><p>ผลักให้ลูกค้าใช้หลาย BU ผ่านแต้ม, bundle, member day และ cross-zone offer</p></div>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:18px;">
+        <div class="card">
+          <div class="highlight h-orange">Awareness Layer</div>
+          <h3>ให้คนรู้จักทั้งตึก</h3>
+          <ul>
+            <li>Key message: ครบ จบ อบอุ่น มีหัวใจ</li>
+            <li>Content พาชมตึกและทุก BU</li>
+            <li>ยิง local awareness รอบรัชดา / ห้วยขวาง / พระราม 9</li>
+            <li>ดึง creator สายสัตว์เลี้ยง / condo pet parent</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="highlight h-green">Conversion Layer</div>
+          <h3>ให้เกิดการเข้ามาใช้บริการ</h3>
+          <ul>
+            <li>Grand Opening + workshop + free trial offers</li>
+            <li>Welcome member coupon เมื่อ add LINE</li>
+            <li>ตรวจสุขภาพ / grooming / cafe bundle</li>
+            <li>Google Business + search intent + map traffic</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="highlight h-pink">Retention Layer</div>
+          <h3>ให้กลับมาและใช้หลาย BU</h3>
+          <ul>
+            <li>เตือนวัคซีน / check-up / grooming ผ่าน LINE</li>
+            <li>Pet birthday automation</li>
+            <li>cross-zone point bonus</li>
+            <li>member-only day / donation day</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">08 — Campaign Calendar</h2>
+      <p class="section-desc">ไทม์ไลน์สื่อสารและ activation ที่ทำงานร่วมกับ loyalty program</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time">Phase A<br>Pre-Launch</div>
+          <div>
+            <h4>เปิดเรื่อง “Pet Community ใหม่ของย่าน”</h4>
+            <ul>
+              <li>ปล่อย teaser ของแต่ละ BU + ภาพรวมตึก</li>
+              <li>เปิด LINE OA พร้อมสิทธิ์ early member</li>
+              <li>ลงทะเบียนรับสิทธิ์ก่อนวันเปิดงาน</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">Phase B<br>Launch Week</div>
+          <div>
+            <h4>Grand Opening + Member Sign-up Push</h4>
+            <ul>
+              <li>ทุกจุดมี QR สมัครสมาชิก</li>
+              <li>สมัครวันนี้รับ welcome points / coupon</li>
+              <li>ใช้ 2 BU ในวันงาน รับโบนัสทันที</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">Phase C<br>Month 1-3</div>
+          <div>
+            <h4>CRM Activation และ Cross-Sell</h4>
+            <ul>
+              <li>broadcast แยกกลุ่ม หมา / แมว / wellness / hotel</li>
+              <li>แคมเปญ “ครบ 3 โซน รับ reward”</li>
+              <li>เริ่ม birthday automation และ revisit reminder</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">Phase D<br>Always-On</div>
+          <div>
+            <h4>เปลี่ยนสมาชิกเป็น community</h4>
+            <ul>
+              <li>monthly member day</li>
+              <li>CSR day / donation drive</li>
+              <li>content ที่เล่าความสัมพันธ์ลูกค้า-สัตว์-แบรนด์</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">09 — Suggested Offers</h2>
+      <p class="section-desc">ตัวอย่างโปรโมชั่นที่ออกแบบมาเพื่อให้ loyalty program ทำงานจริง</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Offer</th>
+              <th>Mechanic</th>
+              <th>BU ที่เกี่ยวข้อง</th>
+              <th>ผลลัพธ์ที่ต้องการ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Welcome to Pet Ploen</td>
+              <td>สมัคร LINE Member รับ coupon แรกเข้า</td>
+              <td>ทุก BU</td>
+              <td>ดึงคนเข้าระบบ CRM</td>
+            </tr>
+            <tr>
+              <td>Check &amp; Care Combo</td>
+              <td>ตรวจสุขภาพ + Grooming รับ point bonus</td>
+              <td>Hospital + Grooming</td>
+              <td>cross-sell และเพิ่ม basket size</td>
+            </tr>
+            <tr>
+              <td>Stay &amp; Play</td>
+              <td>Hotel + Dog Park / enrichment package</td>
+              <td>Hotel + Park</td>
+              <td>เพิ่มมูลค่าการฝาก</td>
+            </tr>
+            <tr>
+              <td>Pet Parent Coffee Time</td>
+              <td>ใช้บริการ BU ใดก็ได้ในตึก รับ cafe perk</td>
+              <td>Cafe + ทุก BU</td>
+              <td>ทำให้ cafe เป็น hub ของตึก</td>
+            </tr>
+            <tr>
+              <td>Give Back Day</td>
+              <td>ใช้แต้มบางส่วนแปลงเป็น donation</td>
+              <td>ทุก BU</td>
+              <td>ต่อยอดภาพลักษณ์คนใจบุญ</td>
+            </tr>
+            <tr>
+              <td>Birthday Celebration</td>
+              <td>ระบบส่ง reward ตามวันเกิดสัตว์</td>
+              <td>Cafe / Grooming / Shop / Hospital</td>
+              <td>เพิ่ม revisit แบบ personal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">10 — CRM Segmentation</h2>
+      <p class="section-desc">ตัวอย่างการแบ่งกลุ่มใน LINE / CRM เพื่อ broadcast ให้ตรงและไม่รบกวนเกินไป</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Segmentation หลัก</h3>
+          <div class="tag">Dog owner</div>
+          <div class="tag">Cat owner</div>
+          <div class="tag">New member</div>
+          <div class="tag">Active member</div>
+          <div class="tag">Dormant member</div>
+          <div class="tag">High spender</div>
+          <div class="tag">Hospital user</div>
+          <div class="tag">Hotel user</div>
+          <div class="tag">Grooming user</div>
+          <div class="tag">Cafe lover</div>
+          <div class="tag">CSR supporter</div>
+          <div class="tag">Birthday this month</div>
+        </div>
+        <div class="card">
+          <h3>Automation ที่ควรมี</h3>
+          <ul>
+            <li>Welcome flow หลังสมัคร</li>
+            <li>Reminder หลังใช้บริการครั้งแรก 7-14 วัน</li>
+            <li>วัคซีน / grooming / revisit reminder</li>
+            <li>Birthday message พร้อม reward</li>
+            <li>ไม่มีการใช้งาน 60-90 วัน → win-back offer</li>
+            <li>ใช้หลาย BU แล้ว → upsell เป็น tier สูงขึ้น</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">11 — KPI ที่ควรวัด</h2>
+      <p class="section-desc">ไม่วัดแค่ reach แต่ต้องวัดว่าระบบสมาชิกทำให้ธุรกิจทั้งตึกแข็งแรงขึ้นจริงหรือไม่</p>
+      <div class="grid grid-4">
+        <div class="metric"><div class="num">30%</div><strong>Member Sign-up Rate</strong><p>สัดส่วนลูกค้าที่กลายเป็นสมาชิกจาก traffic ทั้งหมด</p></div>
+        <div class="metric"><div class="num">25%</div><strong>Cross-Zone Usage</strong><p>สัดส่วนสมาชิกที่ใช้มากกว่า 1 BU</p></div>
+        <div class="metric"><div class="num">60%</div><strong>Repeat Rate</strong><p>สัดส่วนลูกค้าที่กลับมาใช้บริการซ้ำภายในรอบที่กำหนด</p></div>
+        <div class="metric"><div class="num">15%</div><strong>CRM Revenue Share</strong><p>รายได้ที่มาจาก member / CRM campaigns โดยตรง</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">12 — Final Recommendation</h2>
+      <p class="section-desc">ข้อสรุปที่ควรใช้ในการตัดสินใจ</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="highlight h-orange">Strategic Choice</div>
+          <h3>ควรเริ่มด้วย LINE OA เป็น Loyalty / CRM Hub</h3>
+          <p>เพราะเริ่มได้เร็ว ประหยัดกว่า สอดคล้องกับพฤติกรรมลูกค้าไทย และเหมาะกับช่วงเปิดตัวที่ต้องการให้ทีมหน้างานใช้งานได้จริงทันที</p>
+        </div>
+        <div class="card">
+          <div class="highlight h-green">Business Outcome</div>
+          <h3>เป้าหมายไม่ใช่แค่ “มีสมาชิก”</h3>
+          <p>แต่ต้องทำให้สมาชิกใช้หลาย BU, กลับมาซ้ำ, รู้สึกผูกพันกับแบรนด์ และมองว่า Pet Ploen เป็นที่ประจำของครอบครัวสัตว์เลี้ยง</p>
+        </div>
+      </div>
+      <div class="footer-note">
+        <strong>Summary:</strong><br>
+        Pet Ploen ควรใช้ Loyalty Program เป็น “สะพาน” ระหว่าง Grand Opening, การตลาดรายวัน, CRM และการขายข้ามโซน โดยเริ่มจาก LINE OA + ระบบเก็บข้อมูลกลาง แล้วใช้ Google Business เป็นเครื่องมือดึง traffic ที่มี intent สูง และใช้ Social Media Ads เพื่อสร้าง awareness, กระตุ้น sign-up และปิดการขายราย BU
+      </div>
+    </section>
+  </div>
+</body>
+</html>
